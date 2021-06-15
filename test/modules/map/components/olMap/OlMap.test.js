@@ -119,8 +119,8 @@ describe('OlMap', () => {
 			expect(element._view.getCenter()).toEqual(initialCenter);
 			expect(element._view.getRotation()).toBe(initialRotationValue);
 			expect(element.shadowRoot.querySelector('#ol-map')).toBeTruthy();
-			//all default controls are disabled
-			expect(element._map.getControls().getLength()).toBe(0);
+			//all default controls are removed, ScaleLine control added 
+			expect(element._map.getControls().getLength()).toBe(1);
 			//all interactions are present
 			expect(element._map.getInteractions().getLength()).toBe(9);
 		});
@@ -208,6 +208,11 @@ describe('OlMap', () => {
 
 				expect(store.getState().pointer.move.payload.coordinate).toEqual(coordinate);
 				expect(store.getState().pointer.move.payload.screenCoordinate).toEqual(screenCoordinate);
+			});
+                        
+			it('adds a scaleline', async () => {
+				const element = await setup();
+				expect(element.shadowRoot.querySelectorAll('.ol-scale-line')).toHaveSize(1);
 			});
 		});
 

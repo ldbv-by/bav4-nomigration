@@ -3,7 +3,7 @@ import { BaElement } from '../../../BaElement';
 import olCss from 'ol/ol.css';
 import css from './olMap.css';
 import { Map as MapOl, View } from 'ol';
-import { defaults as defaultControls } from 'ol/control';
+import { defaults as defaultControls, ScaleLine } from 'ol/control';
 import { defaults as defaultInteractions, PinchRotate } from 'ol/interaction';
 import { removeLayer } from '../../../../store/layers/layers.action';
 import { changeLiveRotation, changeZoomCenterAndRotation } from '../../../../store/position/position.action';
@@ -12,7 +12,6 @@ import { updateOlLayer, toOlLayerFromHandler, registerLongPressListener } from '
 import { setBeingDragged, setContextClick, setPointerMove } from '../../store/pointer.action';
 import { setBeingMoved, setMoveEnd, setMoveStart } from '../../store/map.action';
 import VectorSource from 'ol/source/Vector';
-
 
 /**
  * Element which renders the ol map.
@@ -68,6 +67,9 @@ export class OlMap extends BaElement {
 			changeLiveRotation(evt.target.getRotation());
 		});
 
+		const scaleLine = new ScaleLine({
+		});
+
 		this._map = new MapOl({
 			layers: [],
 			// target: 'ol-map',
@@ -76,7 +78,7 @@ export class OlMap extends BaElement {
 				attribution: false,
 				zoom: false,
 				rotate: false
-			}),
+			}).extend([scaleLine]),
 			interactions: defaultInteractions({
 				//for embedded mode
 				//onFocusOnly: false,
