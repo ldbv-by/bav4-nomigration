@@ -21,7 +21,7 @@ export class ObservedState extends BaElement {
 
 
 	onStateChanged() {
-		//noop, we want to observe state changes ourself
+		//noop, our observer calls #render on state changes
 	}
 
 

@@ -1,7 +1,7 @@
 import { html } from 'lit-html';
 import { BaElement } from '../../BaElement';
 
-export class NoState extends BaElement {
+export class Stateless extends BaElement {
 
 
 	createView() {

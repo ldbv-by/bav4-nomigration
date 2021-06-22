@@ -1,6 +1,6 @@
-import { NoState } from './components/NoState';
-if (!window.customElements.get(NoState.tag)) {
-	window.customElements.define(NoState.tag, NoState);
+import { Stateless } from './components/Stateless';
+if (!window.customElements.get(Stateless.tag)) {
+	window.customElements.define(Stateless.tag, Stateless);
 }
 import { LocalState } from './components/LocalState';
 if (!window.customElements.get(LocalState.tag)) {
