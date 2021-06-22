@@ -35,5 +35,4 @@ export class AsyncLocalState extends BaElement {
 	static get tag() {
 		return 'guide-async-local-state';
 	}
-
 }

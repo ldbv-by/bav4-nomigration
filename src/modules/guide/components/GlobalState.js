@@ -19,5 +19,4 @@ export class GlobalState extends BaElement {
 	static get tag() {
 		return 'guide-global-state';
 	}
-
 }
